@@ -1,0 +1,26 @@
+{
+  "name": "superfete",
+  "version": "1.0.0",
+  "scripts": {
+    "cy:headless": "cypress run --config baseUrl=${baseUrl} --headless",
+    "cy:chrome:headless": "cypress run --config baseUrl=${baseUrl} --browser chrome --headless --record",
+    "cy:firefox:headless": "cypress run --config baseUrl=${baseUrl} --browser firefox --headless --record",
+    "cy:chrome": "cypress run --config baseUrl=${baseUrl} --browser chrome",
+    "cy:firefox": "cypress run --config baseUrl=${baseUrl} --browser firefox",
+    "cy:headed": "cypress run --config baseUrl=${baseUrl} --headed",
+    "cy:test": "cypress run --config baseUrl=${baseUrl}"
+  },
+  "keywords": [],
+  "author": "Rohit Shinde",
+  "license": "ISC",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^20.1.2",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+    "cypress": "^13.14.1",
+    "cypress-mochawesome-reporter": "^3.3.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "step_definitions": "cypress/support/step_definitions/",
+    "nonGlobalStepDefinitions": false
+  }
+}
