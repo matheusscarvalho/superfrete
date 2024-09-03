@@ -9,7 +9,7 @@ Given('eu acesso a página {string}', (pagina) => {
             calcularPage.abrir();
             calcularPage.paginaCarregada();
             break;
-    
+
         default:
             break;
     }
@@ -20,9 +20,20 @@ When('eu preencho {string} com {string}', (nomeCampo, conteudo) => {
 })
 
 When('eu seleciono a opção {string} como {string}', (opcao, nomeCampo) => {
-   calcularPage.selecionaOpcao(nomeCampo, opcao);
+    calcularPage.selecionaOpcao(nomeCampo, opcao);
 });
 
-When('eu clico no botão calcular', ()=> {
+When('eu clico no botão calcular', () => {
     calcularPage.calcularFrete();
-})
+});
+
+Then('deve ser mostrada a opções de frete', (dataTable) => {
+    const dados = dataTable.hashes();
+    dados.forEach(frete => {
+        calcularPage.confereOpcaoFrete(frete);
+    });
+});
+
+Then('deve ser mostrada a mensagem de alerta {string}', (texto) => {
+    calcularPage.confereMensagem(texto);
+});

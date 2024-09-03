@@ -3,13 +3,25 @@ module.exports = {
         return cy.get("#originPostcode");
       },
       FORMATO: () => {
-        return cy.get('[data-cy="calculator-format"]');
+        return cy.get('#object_format')
       },
       PESO: () => {
-        return cy.get(`[data-cy="calculator-weight"]`);
+        return cy.get('#weight')
       },
       ALTURA: () => {
         return cy.get('#packageHeight');
+      },
+      LARGURA_ENVELOPE: () => {
+        return cy.get('[name="envelope_width"]');
+      },
+      COMPRIMENTO_ENVELOPE: () => {
+        return cy.get('[name="envelope_depth"]');
+      },
+      COMPRIMENTO_CILINDRO: () => {
+        return cy.get('[name="cilinder_depth"]');
+      },
+      DIAMETRO_CILINDRO: () => {
+        return cy.get('[name="cilinder_diameter"]');
       },
       LARGURA: () => {
         return cy.get('#packageWidth');
@@ -22,5 +34,15 @@ module.exports = {
       },
       BTN_CALCULAR: () => {
         return cy.get(`[data-cy="calculator-submit"]`);
+      },
+      OPCAO_FRETE: (frete) => {
+        return cy.get('.MuiAccordionSummary-root')
+                .should('contain', frete.tipo)
+                .should('contain', frete.prazo)
+                .should('contain', frete.balcao)
+                .should('contain', frete.app)
+      },
+      MENSAGEM_ALERTA: (texto) => {
+        return cy.get('p').contains(texto);
       }
 }
